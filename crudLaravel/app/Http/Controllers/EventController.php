@@ -49,9 +49,9 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(event $event)
     {
-        //
+    return view('events.show', ['event' => $event]); 
     }
 
     /**
@@ -82,6 +82,9 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->delete();
+        return redirect()->route('events.index');
+
     }
 }
