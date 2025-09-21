@@ -1,7 +1,3 @@
-@if (session()->has('message'))
-    {{ session()->get('message') }}
-@endif
-
 @extends('layouts.app')
 
 @section('DS Eventos', 'Listagem de eventos')
@@ -11,6 +7,9 @@
 @endsection
 
 @section('content')
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <table>
     <thead>
         <tr>

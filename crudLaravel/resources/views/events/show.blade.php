@@ -1,8 +1,9 @@
-<h1>Evento - {{ $event->name }} </h1>
-
 @extends('layouts.app')
 
 @section('content')
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <form action="{{ route('events.destroy', ['event' => $event->id]) }}" method="post">
     @csrf
     @method('DELETE')

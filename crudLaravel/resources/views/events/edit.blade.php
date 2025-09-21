@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <h3>Editar evento</h3>
 <form action="{{ route('events.update', ['event' => $event->id]) }}" method="post">
     @csrf

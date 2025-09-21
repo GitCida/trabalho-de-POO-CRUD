@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <h3>Criar evento</h3>
 <form action="{{ route('events.store') }}" method="post">
     @csrf
