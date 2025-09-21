@@ -1,13 +1,38 @@
-<h1>eventos</h1>
 @if (session()->has('message'))
     {{ session()->get('message') }}
 @endif
 
+@extends('layouts.app')
+
+@section('DS Eventos', 'Listagem de eventos')
+
+@section('create')
 <a href="{{ route('events.create') }}">Criar evento</a>
-<ul>
-    @foreach ($events as $event)
-    <li>
-        {{ $event-> id }} - {{ $event-> name }} - {{ $event-> location }} | <a href="{{ route('events.edit', ['event' => $event->id]) }}">Editar</a> | <a href="{{ route('events.show', ['event' => $event->id]) }}">Deletar</a>
-    </li>
-    @endforeach
-</ul>
+@endsection
+
+@section('content')
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Evento</th>
+            <th>Localização</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($events as $event)
+        <tr>
+            <td>{{ $event->id }}</td>
+            <td>{{ $event->name }}</td>
+            <td>{{ $event->location }}</td>
+            <td>
+                <a href="{{ route('events.edit', ['event' => $event->id]) }}">Editar</a> | 
+                <a href="{{ route('events.show', ['event' => $event->id]) }}">Deletar</a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+@endsection
