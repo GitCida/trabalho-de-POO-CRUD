@@ -29,7 +29,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -37,7 +37,13 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $created = Event::create($request->all());
+        if($created) {
+            return redirect()->route('events.index')->with('message', 'Criado com sucesso!');
+        }
+        else {
+            return redirect()->back()->with('message', 'Não foi possível criar.');
+        }
     }
 
     /**
@@ -51,9 +57,9 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Event $event)
     {
-        //
+        return view('events.edit', ['event' => $event]);
     }
 
     /**
@@ -61,7 +67,14 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $updated = $event->update($request->except(['_token', '_method']));
+        if($updated) {
+            return redirect()->route('events.index')->with('message', 'Editado com sucesso!');
+        }
+        else {
+            return redirect()->back()->with('message', 'Não foi possível editar.');
+        }
     }
 
     /**
