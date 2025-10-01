@@ -9,9 +9,9 @@
     @csrf
     @method('PUT')
     <label for="name">Nome do evento: </label>
-    <input type="text" name="name" value="{{ $event->name }}" required>
+    <input class="inputs" type="text" name="name" value="{{ $event->name }}" required>
     <label for="location">Localização: </label>
-    <input type="text" name="location" value="{{ $event->location }}" required>
-    <button type="submit">Editar</button>
+    <input class="inputs" type="text" name="location" value="{{ $event->location }}" required>
+    <button class="buttons" type="submit">Editar</button>
 </form>
 @endsection

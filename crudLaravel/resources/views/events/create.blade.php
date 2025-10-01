@@ -8,9 +8,9 @@
 <form action="{{ route('events.store') }}" method="post">
     @csrf
     <label for="name">Digite o nome do evento: </label>
-    <input type="text" name="name" placeholder="ex.: Formatura 3° ano" required>
+    <input class="inputs" type="text" name="name" placeholder="ex.: Formatura 3° ano" required>
     <label for="location">Localização: </label>
-    <input type="text" name="location" placeholder="ex.: DS eventos" required>
-    <button type="submit">Criar evento</button>
+    <input class="inputs" type="text" name="location" placeholder="ex.: DS eventos" required>
+    <button class="buttons" type="submit">Criar evento</button>
 </form>
 @endsection

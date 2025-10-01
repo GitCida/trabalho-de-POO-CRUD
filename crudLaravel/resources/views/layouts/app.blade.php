@@ -11,7 +11,7 @@
     :root {
       --lux-1: #F1F4F4;
       --lux-2: #361D3E;
-      --lux-3: #674B74;
+      --lux-3: #8a679bff;
       --lux-4: #DBCBC1;
       --lux-5: #391C2F;
 
@@ -27,6 +27,39 @@
       background: linear-gradient(180deg, var(--lux-1) 0%, #EFEFEF 100%);
       color: var(--lux-2);
       padding: 28px;
+    }
+
+    .links {
+      color: white;
+      background-color: var(--lux-2);
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .links:hover {
+      background-color: var(--lux-3);
+    }
+
+    .inputs {
+      border-color: var(--lux-2);
+      padding: 7px 25px 10px 0;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .buttons {
+      color: white;
+      background-color: var(--lux-2);
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .buttons:hover {
+      background-color: var(--lux-3);
+      cursor: pointer;
     }
 
     .app {
@@ -189,9 +222,7 @@
         </div>
       </div>
       <nav class="nav">
-        <a href="#" class="active">Dashboard</a>
-        <a href="#">Meus Eventos</a>
-        <a href="#">Configurações</a>
+        <a href="{{ route('events.index') }}" class="active">Dashboard</a>
       </nav>
     </aside>
 

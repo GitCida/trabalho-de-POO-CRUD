@@ -3,7 +3,7 @@
 @section('DS Eventos', 'Listagem de eventos')
 
 @section('create')
-<a href="{{ route('events.create') }}">Criar evento</a>
+<a class="links" href="{{ route('events.create') }}">Criar evento</a>
 @endsection
 
 @section('content')
@@ -26,8 +26,8 @@
             <td>{{ $event->name }}</td>
             <td>{{ $event->location }}</td>
             <td>
-                <a href="{{ route('events.edit', ['event' => $event->id]) }}">Editar</a> | 
-                <a href="{{ route('events.show', ['event' => $event->id]) }}">Deletar</a>
+                <a class="links" href="{{ route('events.edit', ['event' => $event->id]) }}">Editar</a> | 
+                <a class="links" href="{{ route('events.show', ['event' => $event->id]) }}">Deletar</a>
             </td>
         </tr>
         @endforeach
