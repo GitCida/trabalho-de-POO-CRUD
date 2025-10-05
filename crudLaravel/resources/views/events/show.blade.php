@@ -7,6 +7,12 @@
 <form action="{{ route('events.destroy', ['event' => $event->id]) }}" method="post">
     @csrf
     @method('DELETE')
+    <p>
+        Evento: {{ $event->name }}
+    </p>
+    <p>
+        Local: {{ $event->location }}
+    </p>
     <button class="buttons" type="submit" onclick="return confirm('Tem certeza que deseja deletar esse evento?')">Deletar</button>
 </form>
 @endsection

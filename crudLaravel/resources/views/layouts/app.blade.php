@@ -1,48 +1,40 @@
 <!doctype html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>@yield('DS Eventos', 'Dashboard')</title>
+    <title>MA Eventos</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --lux-1: #F1F4F4;
-      --lux-2: #361D3E;
-      --lux-3: #8a679bff;
-      --lux-4: #DBCBC1;
-      --lux-5: #391C2F;
+    * { 
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+  }
 
-      --muted: rgba(55,40,60,0.6);
-      --shadow: 0 6px 18px rgba(23,10,30,0.28);
-      --radius: 12px;
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, var(--lux-1) 0%, #EFEFEF 100%);
-      color: var(--lux-2);
+      background: linear-gradient(180deg, #F1F4F4 0%, #EFEFEF 100%);
+      color: #361D3E;
       padding: 28px;
+      height: 100%;
     }
 
     .links {
       color: white;
-      background-color: var(--lux-2);
+      background-color: #361D3E;
       text-decoration: none;
       padding: 5px;
-      border-radius: 5px;
+      border-radius: 10px;
     }
 
     .links:hover {
-      background-color: var(--lux-3);
+      background-color: #8a679b;
     }
 
     .inputs {
-      border-color: var(--lux-2);
+      border-color: #361D3E;
       padding: 7px 25px 10px 0;
       border-radius: 5px;
       font-family: 'Inter', sans-serif;
@@ -50,15 +42,15 @@
 
     .buttons {
       color: white;
-      background-color: var(--lux-2);
+      background-color: #361D3E;
       padding: 8px;
-      border-radius: 5px;
+      border-radius: 10px;
       border: none;
       font-family: 'Inter', sans-serif;
     }
 
     .buttons:hover {
-      background-color: var(--lux-3);
+      background-color: #8a679b;
       cursor: pointer;
     }
 
@@ -73,13 +65,11 @@
     /* Sidebar */
     .sidebar {
       background: linear-gradient(180deg, rgba(103,75,116,0.05), rgba(54,28,61,0.04));
-      border-radius: var(--radius);
+      border-radius: 12px;
       padding: 20px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(54,28,61,0.06);
+      box-shadow: 0 6px 18px #bebbc0;
       position: sticky;
       top: 28px;
-      height: calc(100vh - 56px);
     }
 
     .brand {
@@ -88,29 +78,36 @@
       align-items: center;
       margin-bottom: 18px;
     }
+
     .logo {
       width: 44px;
       height: 44px;
       border-radius: 10px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--lux-3), var(--lux-2));
-      color: var(--lux-1);
+      background: linear-gradient(135deg, #8a679b, #361D3E);
+      color: #F1F4F4;
       font-weight: 700;
     }
-    .brand h1 { font-size: 16px; margin: 0; color: var(--lux-5); }
 
-    .nav { margin-top: 8px; }
+    .brand h1 { 
+      font-size: 16px; margin: 0; color: #391C2F; 
+    }
+
+    .nav { 
+      margin-top: 8px; 
+    }
+
     .nav a {
       display: block;
       padding: 10px 12px;
       border-radius: 10px;
-      color: var(--lux-2);
       text-decoration: none;
       font-weight: 600;
     }
-    .nav a:hover { background: rgba(103,75,116,0.08); }
-    .nav .active { background: var(--lux-3); color: var(--lux-1); }
+
+    .nav a:hover { background: #c5a9d3; }
+    .nav .active { background: #8a679b; color: #F1F4F4; }
 
     /* Main */
     .main { min-height: calc(100vh - 56px); }
@@ -122,49 +119,36 @@
       align-items: center;
       margin-bottom: 18px;
     }
-    .search {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--lux-1);
-      padding: 10px 12px;
-      border-radius: 999px;
-      box-shadow: 0 3px 10px rgba(20,10,30,0.06);
-      width: 420px;
-      max-width: 70%;
-    }
-    .search input {
-      border: 0;
-      background: transparent;
-      outline: none;
-      font-size: 14px;
-      color: var(--lux-5);
-      width: 100%;
-    }
+
     .profile { display: flex; align-items: center; gap: 12px; }
+
     .avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg,var(--lux-2),var(--lux-5));
+      background: linear-gradient(135deg,#361D3E,#391C2F);
       display: grid;
       place-items: center;
-      color: var(--lux-1);
+      color: #F1F4F4;
       font-weight: 700;
     }
 
     /* Panel/Table */
     .panel {
-      background: rgba(255,255,255,0.95);
+      background: white;
       padding: 18px;
       border-radius: 14px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 6px 18px #bebbc0;
       border: 1px solid rgba(54,28,61,0.06);
     }
 
     h2 {
       margin: 0 0 12px 0;
-      color: var(--lux-5);
+      color: #391C2F;
+    }
+
+    p {
+      padding: 5px; 
     }
 
     table {
@@ -179,38 +163,13 @@
     }
     th {
       font-size: 13px;
-      color: var(--muted);
+      color: #887f8b;
       font-weight: 700;
-    }
-
-    .actions button {
-      border: 0;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-right: 6px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .btn-edit {
-      background: transparent;
-      color: var(--lux-3);
-      border: 1px solid rgba(103,75,116,0.3);
-    }
-    .btn-delete {
-      background: transparent;
-      color: #dc3545;
-      border: 1px solid rgba(220,53,69,0.3);
-    }
-
-    @media (max-width: 900px) {
-      .app { grid-template-columns: 1fr; }
-      .sidebar { position: relative; height: auto; }
-      .search { width: 100%; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="app">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -218,7 +177,7 @@
         <div class="logo">MA</div>
         <div>
           <h1>MA Eventos</h1>
-          <div style="font-size:12px; color:var(--muted)">Painel CRUD</div>
+          <div style="font-size:12px; color:#887f8b">Painel CRUD</div>
         </div>
       </div>
       <nav class="nav">
@@ -230,14 +189,12 @@
     <main class="main">
       <!-- Topbar -->
       <div class="topbar">
-        <div class="search">
-          <input placeholder="Pesquisar eventos..." />
-        </div>
+        <h2>MA Eventos</h2>
         <div class="profile">
             @yield('create')
             <div style="text-align:right">
-            <div style="font-weight:700">Maria A.</div>
-            <div style="font-size:12px;color:var(--muted)">Administrador</div>
+            <div style="font-weight:700">Maria Aparecida</div>
+            <div style="font-size:12px;color:#887f8b">Administrador</div>
             </div>
             <div class="avatar">MA</div>
         </div>
@@ -250,6 +207,5 @@
       </section>
     </main>
   </div>
-
 </body>
 </html>
