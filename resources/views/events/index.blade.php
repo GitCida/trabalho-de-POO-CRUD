@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
-@section('DS Eventos', 'Listagem de eventos')
-
 @section('create')
 <a class="links" href="{{ route('events.create') }}">Criar evento</a>
 @endsection
 
 @section('content')
 @if (session()->has('message'))
-    {{ session()->get('message') }}
+    <p id="message">{{ session()->get('message') }}</p>
 @endif
 <table>
     <thead>

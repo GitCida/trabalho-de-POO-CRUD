@@ -7,19 +7,11 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    // public readonly Event $event; 
-    // public function __construct() {
-    //     $this->event = new Event();
-    //}
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // $events = $this->event->all();
-        // return view('events', ['events' => $events]);
-
         $events = Event::all();
         return view('events.index', ['events' => $events]);
     }
@@ -49,7 +41,7 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(event $event)
+    public function show(Event $event)
     {
     return view('events.show', ['event' => $event]); 
     }

@@ -21,6 +21,13 @@
       height: 100%;
     }
 
+    #message {
+      color: green;
+      background-color: #ede9f0ff;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
     .links {
       color: white;
       background-color: #361D3E;
@@ -62,7 +69,6 @@
       margin: 0 auto;
     }
 
-    /* Sidebar */
     .sidebar {
       background: linear-gradient(180deg, rgba(103,75,116,0.05), rgba(54,28,61,0.04));
       border-radius: 12px;
@@ -90,12 +96,10 @@
       font-weight: 700;
     }
 
-    .brand h1 { 
-      font-size: 16px; margin: 0; color: #391C2F; 
-    }
-
-    .nav { 
-      margin-top: 8px; 
+    h1 { 
+      font-size: 16px; 
+      margin: 0; 
+      color: #391C2F; 
     }
 
     .nav a {
@@ -106,13 +110,14 @@
       font-weight: 600;
     }
 
-    .nav a:hover { background: #c5a9d3; }
+    .nav a:hover { 
+      background: #c5a9d3; 
+    }
+    
     .nav .active { background: #8a679b; color: #F1F4F4; }
 
-    /* Main */
     .main { min-height: calc(100vh - 56px); }
 
-    /* Topbar */
     .topbar {
       display: flex;
       justify-content: space-between;
@@ -120,7 +125,10 @@
       margin-bottom: 18px;
     }
 
-    .profile { display: flex; align-items: center; gap: 12px; }
+    .profile { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; }
 
     .avatar {
       width: 40px;
@@ -133,7 +141,6 @@
       font-weight: 700;
     }
 
-    /* Panel/Table */
     .panel {
       background: white;
       padding: 18px;
@@ -171,7 +178,7 @@
 
 <body>
   <div class="app">
-    <!-- Sidebar -->
+
     <aside class="sidebar">
       <div class="brand">
         <div class="logo">MA</div>
@@ -185,9 +192,8 @@
       </nav>
     </aside>
 
-    <!-- Main -->
     <main class="main">
-      <!-- Topbar -->
+
       <div class="topbar">
         <h2>MA Eventos</h2>
         <div class="profile">
@@ -200,7 +206,6 @@
         </div>
       </div>
 
-      <!-- Table -->
       <section class="panel">
         <h2>Lista de Eventos</h2>
         @yield('content')
